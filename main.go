@@ -1,7 +1,6 @@
 package main
 
 import (
-	"os"
 	"restaurantProject/middleware"
 	"restaurantProject/routes"
 
@@ -9,10 +8,7 @@ import (
 )
 
 func main() {
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-	}
+	port := "8080"
 	router := gin.New()
 	router.Use(middleware.CORSMiddleware())
 
