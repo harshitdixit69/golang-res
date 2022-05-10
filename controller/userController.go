@@ -104,7 +104,7 @@ func SignUp() gin.HandlerFunc {
 		}
 		if count > 0 {
 			c.JSON(400, gin.H{
-				"message": "Phone No already exists",
+				"message": "Phone-Number already exists",
 			})
 			log.Println(err)
 			return
