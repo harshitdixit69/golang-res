@@ -1,18 +1,16 @@
 version: 0.0
 os: linux
 files:
-  - source: /
-    destination: /home/ec2-user/golang-res
+  - source: /app
+    destination: /opt
 hooks:
-  ApplicationStop:
-    - location: scripts/application_stop.sh
-      timeout: 3000
-      runas: ec2-user
   BeforeInstall:
-    - location: scripts/before_install.sh
-      timeout: 3000
-      runas: ec2-user
+    - location: codedeploy/BeforeInstall.sh
+  AfterInstall:
+    - location: codedeploy/AfterInstall.sh
+  ApplicationStop:
+    - location: codedeploy/ApplicationStop.sh
   ApplicationStart:
-    - location: scripts/application_start.sh
-      timeout: 3000
-      runas: ec2-user
+    - location: codedeploy/ApplicationStart.sh
+  ValidateService:
+    - location: codedeploy/ValidateService.sh  
