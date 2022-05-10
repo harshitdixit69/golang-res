@@ -2,8 +2,8 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /opt
-hooks:
+    destination: /home/ec2-user/golang
+hook:
   BeforeInstall:
     - location: codedeploy/BeforeInstall.sh
   AfterInstall:
@@ -14,6 +14,3 @@ hooks:
     - location: codedeploy/ApplicationStart.sh
   ValidateService:
     - location: codedeploy/ValidateService.sh  
-
-
-    #!/bin/bash
